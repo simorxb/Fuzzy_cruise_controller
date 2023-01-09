@@ -1,0 +1,58 @@
+# sciFLT scilab Fuzzy Logic Toolbox
+<REVISION>
+ <revision>@REV@
+
+<DESCRIPTION>
+ <name>Cruise controller
+ <comment>NewComment
+ <type>m
+ <SNorm>max
+ <SNormPar>0
+ <TNorm>min
+ <TNormPar>0
+ <Comp>one
+ <CompPar>0
+ <ImpMethod>min
+ <AggMethod>max
+ <defuzzMethod>centroide
+
+<INPUT>
+ <name>Control error
+ <range>-30 30
+  <mf_name>Negative
+   <mf_type>trapmf
+   <mf_par>-40 -30 -20 0
+  <mf_name>Positive
+   <mf_type>trapmf
+   <mf_par>0 20 30 40
+  <mf_name>Zero
+   <mf_type>trimf
+   <mf_par>-20 0 20
+
+ <name>Current throttle
+ <range>0 100
+  <mf_name>Max
+   <mf_type>trimf
+   <mf_par>80 100 110
+  <mf_name>Min
+   <mf_type>trimf
+   <mf_par>-10 0 20
+
+<OUTPUT>
+ <name>Throttle rate of change
+ <range>-10 10
+  <mf_name>Positive
+   <mf_type>trimf
+   <mf_par>0 10 20
+  <mf_name>Negative
+   <mf_type>trimf
+   <mf_par>-20 -10 0
+  <mf_name>Zero
+   <mf_type>trimf
+   <mf_par>-10 0 10
+
+<RULE>
+2 -1 1 1 1.0
+1 -2 2 1 1.0
+3 0 3 1 1.0
+
